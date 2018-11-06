@@ -1,3 +1,3 @@
-struct fs_html_dsl {
+struct FSHtml {
     var text = "Hello, World!"
 }

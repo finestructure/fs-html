@@ -1,7 +1,7 @@
 import XCTest
 
-import fs_html_dslTests
+import FSHtmlTests
 
 var tests = [XCTestCaseEntry]()
-tests += fs_html_dslTests.allTests()
+tests += FSHtmlTests.allTests()
 XCTMain(tests)

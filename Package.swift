@@ -4,12 +4,12 @@
 import PackageDescription
 
 let package = Package(
-    name: "fs-html-dsl",
+    name: "FSHtml",
     products: [
         // Products define the executables and libraries produced by a package, and make them visible to other packages.
         .library(
-            name: "fs-html-dsl",
-            targets: ["fs-html-dsl"]),
+            name: "FSHtml",
+            targets: ["FSHtml"]),
     ],
     dependencies: [
         // Dependencies declare other packages that this package depends on.
@@ -19,10 +19,10 @@ let package = Package(
         // Targets are the basic building blocks of a package. A target can define a module or a test suite.
         // Targets can depend on other targets in this package, and on products in packages which this package depends on.
         .target(
-            name: "fs-html-dsl",
+            name: "FSHtml",
             dependencies: []),
         .testTarget(
-            name: "fs-html-dslTests",
-            dependencies: ["fs-html-dsl"]),
+            name: "FSHtmlTests",
+            dependencies: ["FSHtml"]),
     ]
 )
