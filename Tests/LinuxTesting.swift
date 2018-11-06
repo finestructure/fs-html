@@ -3,3 +3,4 @@
 protocol LinuxTesting {}
 // Extend XCTestCase to conform
 extension XCTestCase: LinuxTesting {}
+extension SnapshotTestCase: LinuxTesting {}
