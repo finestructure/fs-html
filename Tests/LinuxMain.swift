@@ -4,12 +4,6 @@
 
 import XCTest
 
-// Add a marker protocol to allow for new TestCase subclasses to be
-// picked up automatically by adopting it.
-protocol LinuxTesting {}
-// Extend TestCase to conform
-extension TestCase: LinuxTesting {}
-
 @testable import FSHtml
 
 // swiftlint:disable trailing_comma
