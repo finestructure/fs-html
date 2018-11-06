@@ -12,6 +12,13 @@ extension FSHtmlTests {
       ("testP", testP),
       ("testAttr", testAttr),
       ("testHtml", testHtml),
+      ("testHomePageNode", testHomePageNode),
+      ("testHomePageHtml", testHomePageHtml),
+      ("testHomePageRendered", testHomePageRendered),
+  ]
+}
+extension SnapshotTestCase {
+  static var allTests: [(String, (SnapshotTestCase) -> () throws -> Void)] = [
   ]
 }
 extension XCTestCase {
@@ -21,6 +28,7 @@ extension XCTestCase {
 
 XCTMain([
   testCase(FSHtmlTests.allTests),
+  testCase(SnapshotTestCase.allTests),
   testCase(XCTestCase.allTests),
 ])
 // swiftlint:enable trailing_comma
