@@ -10,6 +10,13 @@ import WebKit
 final class FSHtmlTests: SnapshotTestCase, LinuxTesting {
 
     func testP() {
+        XCTAssertEqual(render(HTML.Node.p("content")),
+            """
+            <p>
+              content
+            </p>
+            """
+        )
         XCTAssertEqual(render(HTML.Node.p(["content"])),
             """
             <p>

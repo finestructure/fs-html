@@ -1,0 +1,44 @@
+public extension HTML.Node {
+{% for enum in types.implementing.AllElementOverloads|enum %}
+
+    {% for case in enum.cases %}
+    // {{case.name}}
+
+    static func {{case.name}}(_ text: String) -> HTML.Node {
+        return {{case.name}}([], .text(text))
+    }
+
+    static func {{case.name}}(_ node: HTML.Node) -> HTML.Node {
+        return {{case.name}}([], node)
+    }
+
+    static func {{case.name}}(_ children: [HTML.Node]) -> HTML.Node {
+        return {{case.name}}([], children)
+    }
+
+    static func {{case.name}}(_ attrs: [HTML.Attribute], _ node: HTML.Node) -> HTML.Node {
+        return {{case.name}}(attrs, [node])
+    }
+
+    static func {{case.name}}(_ attrs: [HTML.Attribute], _ children: [HTML.Node]) -> HTML.Node {
+        return .el("{{case.name}}", attrs, children)
+    }
+
+    {% endfor %}
+{% endfor %}
+}
+
+
+public extension HTML.Node {
+{% for enum in types.implementing.VarOnly|enum %}
+
+    {% for case in enum.cases %}
+    // {{case.name}}
+
+    static var {{case.name}}: HTML.Node {
+        return .el("{{case.name}}", [], [])
+    }
+
+    {% endfor %}
+{% endfor %}
+}
