@@ -7,7 +7,7 @@ import SnapshotTesting
 import WebKit
 #endif
 
-final class FSHtmlTests: SnapshotTestCase {
+final class FSHtmlTests: SnapshotTestCase, LinuxTesting {
 
     func testP() {
         XCTAssertEqual(render(HTML.Node.p(["content"])),
@@ -52,8 +52,8 @@ final class FSHtmlTests: SnapshotTestCase {
         assertSnapshot(matching: html)
     }
 
-#if canImport(WebKit)
     func testHomePageRendered() throws {
+#if canImport(WebKit)
         let node = homePage(title: "Hello World 🌍")
         let html = render(node)
 
@@ -62,8 +62,8 @@ final class FSHtmlTests: SnapshotTestCase {
         webView.loadHTMLString(html, baseURL: nil)
 
         assertSnapshot(matching: webView)
-    }
 #endif
+    }
 
 }
 
