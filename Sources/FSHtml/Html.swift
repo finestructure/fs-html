@@ -311,11 +311,6 @@ extension HTML.Attribute.Key where A == String {
 }
 
 
-enum HTMLError: Error {
-    case invalidHeadTag(HTML.Tag?)
-}
-
-
 extension HTML {// Render functinos
 
     static func indent(_ level: Int) -> String {
