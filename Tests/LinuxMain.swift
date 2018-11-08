@@ -4,7 +4,7 @@
 
 import XCTest
 
-@testable import FSHtml
+@testable import FSHtmlTests
 
 // swiftlint:disable trailing_comma
 extension FSHtmlTests {
