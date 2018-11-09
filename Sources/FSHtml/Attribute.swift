@@ -1,4 +1,10 @@
 
+infix operator =>
+public func => <A> (key: HTML.Attribute.Key<A>, value: A) -> HTML.Attribute {
+    return .init(key.key, "\(value)")
+}
+
+
 extension HTML {
 
     public struct Attribute {
@@ -19,6 +25,7 @@ extension HTML {
     }
 
 }
+
 
 // Quoted attribute keys - can't autogenerate these
 
