@@ -16,23 +16,6 @@ public func => <A> (key: HTML.Attribute.Key<A>, value: A) -> HTML.Attribute {
 
 public struct HTML {
 
-    public struct Attribute {
-
-        let key: String
-        let value: String
-
-        init(_ key: String, _ value: String) {
-            self.key = key
-            self.value = value
-        }
-
-        public struct Key<A> {
-            let key: String
-            init (_ key: String) { self.key = key }
-        }
-
-    }
-
     public typealias Tag = String
 
 
