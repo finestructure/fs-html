@@ -73,31 +73,6 @@ extension HTML.Tag {
 }
 
 
-extension HTML.Attribute.Key where A == String {
-    public static let action = HTML.Attribute.Key<String>("action")
-    public static let charset = HTML.Attribute.Key<String>("charset")
-    public static let `class` = HTML.Attribute.Key<String>("class")
-    public static let content = HTML.Attribute.Key<String>("content")
-    public static let crossorigin = HTML.Attribute.Key<String>("crossorigin")
-    public static let enctype = HTML.Attribute.Key<String>("enctype")
-    public static let `for` = HTML.Attribute.Key<String>("for")
-    public static let href = HTML.Attribute.Key<String>("href")
-    public static let id = HTML.Attribute.Key<String>("id")
-    public static let integrity = HTML.Attribute.Key<String>("integrity")
-    public static let lang = HTML.Attribute.Key<String>("lang")
-    public static let method = HTML.Attribute.Key<String>("method")
-    public static let nameKey = HTML.Attribute.Key<String>("name")
-    public static let name = HTML.Attribute.Key<String>("name")
-    public static let rel = HTML.Attribute.Key<String>("rel")
-    public static let role = HTML.Attribute.Key<String>("role")
-    public static let scope = HTML.Attribute.Key<String>("scope")
-    public static let src = HTML.Attribute.Key<String>("src")
-    public static let style = HTML.Attribute.Key<String>("style")
-    public static let type = HTML.Attribute.Key<String>("type")
-    public static let value = HTML.Attribute.Key<String>("value")
-}
-
-
 extension HTML {// Render functinos
 
     static func indent(_ level: Int) -> String {
