@@ -1,5 +1,5 @@
 public extension HTML.Node {
-{% for enum in types.implementing.AllElementOverloads|enum %}
+{% for enum in types.implementing.AttributesNodes|enum %}
 
     {% for case in enum.cases %}
     // {{case.name}}
@@ -30,13 +30,32 @@ public extension HTML.Node {
 
 
 public extension HTML.Node {
-{% for enum in types.implementing.VarOnly|enum %}
+{% for enum in types.implementing.NoParameters|enum %}
 
     {% for case in enum.cases %}
     // {{case.name}}
 
     static var {{case.name}}: HTML.Node {
         return .el("{{case.name}}", [], [])
+    }
+
+    {% endfor %}
+{% endfor %}
+}
+
+
+public extension HTML.Node {
+{% for enum in types.implementing.AttributesOnly|enum %}
+
+    {% for case in enum.cases %}
+    // {{case.name}}
+
+    static func {{case.name}}(_ attr: HTML.Attribute) -> HTML.Node {
+        return {{case.name}}([attr])
+    }
+
+    static func {{case.name}}(_ attrs: [HTML.Attribute]) -> HTML.Node {
+        return .el("{{case.name}}", attrs, [])
     }
 
     {% endfor %}

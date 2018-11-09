@@ -1,7 +1,8 @@
-protocol AllElementOverloads {}
-protocol VarOnly {}
+protocol AttributesNodes {}
+protocol NoParameters {}
+protocol AttributesOnly {}
 
-public enum Elements1: AllElementOverloads {
+public enum Elements: AttributesNodes {
     case a
     case body
     case div
@@ -19,8 +20,6 @@ public enum Elements1: AllElementOverloads {
     case input
     case label
     case li
-    case link
-    case meta
     case p
     case pre
     case script
@@ -35,6 +34,12 @@ public enum Elements1: AllElementOverloads {
     case ul
 }
 
-public enum Elements2: VarOnly {
+public enum NoParametersElements: NoParameters {
     case hr
+}
+
+
+public enum NoNodeElements: AttributesOnly {
+    case link
+    case meta
 }

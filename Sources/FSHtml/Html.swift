@@ -14,9 +14,9 @@ func => <A> (key: HTML.Attribute.Key<A>, value: A) -> HTML.Attribute {
 }
 
 
-struct HTML {
+public struct HTML {
 
-    struct Attribute {
+    public struct Attribute {
 
         let key: String
         let value: String
@@ -33,228 +33,15 @@ struct HTML {
 
     }
 
-    typealias Tag = String
+    public typealias Tag = String
 
 
-    enum Node {
+    public enum Node {
         indirect case el(Tag, [Attribute], [Node])
         case text(String)
     }
 
 }
-
-extension HTML.Node {
-
-    static func head(_ children: [HTML.Node]) -> HTML.Node {
-        return .el("head", [], children)
-    }
-
-    static func html(_ children: [HTML.Node]) -> HTML.Node {
-        return html([], children)
-    }
-
-    static func html(_ attrs: [HTML.Attribute],_ children: [HTML.Node]) -> HTML.Node {
-        return .el("html", attrs, children)
-    }
-
-    static func meta(_ attrs: [HTML.Attribute]) -> HTML.Node {
-        return .el("meta", attrs, [])
-    }
-
-    static func link(_ attrs: [HTML.Attribute]) -> HTML.Node {
-        return .el("link", attrs, [])
-    }
-
-    static func title(_ title: String) -> HTML.Node {
-        return .el("title", [], [.text(title)])
-    }
-
-    static func body(_ attrs: [HTML.Attribute], _ children: [HTML.Node]) -> HTML.Node {
-        return .el("body", [], children)
-    }
-
-    static func body(_ children: [HTML.Node]) -> HTML.Node {
-        return body([], children)
-    }
-
-    static func header(_ attrs: [HTML.Attribute], _ children: [HTML.Node]) -> HTML.Node {
-        return .el("header", attrs, children)
-    }
-
-    static func header(_ children: [HTML.Node]) -> HTML.Node {
-        return .el("header", [], children)
-    }
-
-    static func h1(_ attrs: [HTML.Attribute], _ children: [HTML.Node]) -> HTML.Node {
-        return .el("h1", attrs, children)
-    }
-
-    static func h1(_ children: [HTML.Node]) -> HTML.Node {
-        return .el("h1", [], children)
-    }
-
-    static func h2(_ children: [HTML.Node]) -> HTML.Node {
-        return .el("h2", [], children)
-    }
-
-    static var hr: HTML.Node {
-        return .el("hr", [], [])
-    }
-
-    static func p(_ text: String) -> HTML.Node {
-        return .el("p", [], [.text(text)])
-    }
-
-    static func p(_ node: HTML.Node) -> HTML.Node {
-        return .el("p", [], [node])
-    }
-
-    static func p(_ children: [HTML.Node]) -> HTML.Node {
-        return .el("p", [], children)
-    }
-
-    static func p(_ attrs: [HTML.Attribute], _ children: [HTML.Node]) -> HTML.Node {
-        return .el("p", attrs, children)
-    }
-
-    static func p(_ attrs: [HTML.Attribute], _ node: HTML.Node) -> HTML.Node {
-        return .el("p", attrs, [node])
-    }
-
-    static func small(_ attrs: [HTML.Attribute], _ node: HTML.Node) -> HTML.Node {
-        return .el("small", attrs, [node])
-    }
-
-    static func small(_ node: HTML.Node) -> HTML.Node {
-        return .el("small", [], [node])
-    }
-
-    static func div(_ attrs: [HTML.Attribute], _ node: HTML.Node) -> HTML.Node {
-        return .el("div", attrs, [node])
-    }
-
-    static func div(_ children: [HTML.Node]) -> HTML.Node {
-        return .el("div", [], children)
-    }
-
-    static func div(_ attrs: [HTML.Attribute], _ children: [HTML.Node]) -> HTML.Node {
-        return .el("div", attrs, children)
-    }
-
-    static func pre(_ children: [HTML.Node]) -> HTML.Node {
-        return .el("pre", [], children)
-    }
-
-    static func pre(_ attrs: [HTML.Attribute], _ children: [HTML.Node]) -> HTML.Node {
-        return .el("pre", attrs, children)
-    }
-
-    static func a(_ attrs: [HTML.Attribute], _ children: [HTML.Node]) -> HTML.Node {
-        return .el("a", attrs, children)
-    }
-
-    static func a(_ attrs: [HTML.Attribute], href: String, text: String) -> HTML.Node {
-        return .el("a", attrs + [.href => href], [.text(text)])
-    }
-
-    static func a(href: String, text: String) -> HTML.Node {
-        return .el("a", [.href => href], [.text(text)])
-    }
-
-    static func img(_ attrs: [HTML.Attribute]) -> HTML.Node {
-        return .el("img", attrs, [])
-    }
-
-    static func script(_ attrs: [HTML.Attribute], _ children: [HTML.Node] = []) -> HTML.Node {
-        return .el("script", attrs, children)
-    }
-
-    static func form(_ attrs: [HTML.Attribute], _ children: [HTML.Node]) -> HTML.Node {
-        return .el("form", attrs, children)
-    }
-
-    static func label(_ children: [HTML.Node]) -> HTML.Node {
-        return .el("label", [], children)
-    }
-
-    static func label(_ attrs: [HTML.Attribute], _ children: [HTML.Node]) -> HTML.Node {
-        return .el("label", attrs, children)
-    }
-
-    static func input(_ attrs: [HTML.Attribute]) -> HTML.Node {
-        return .el("input", attrs, [])
-    }
-
-    static func table(_ children: [HTML.Node]) -> HTML.Node {
-        return .el("table", [], children)
-    }
-
-    static func table(_ attrs: [HTML.Attribute], _ children: [HTML.Node]) -> HTML.Node {
-        return .el("table", attrs, children)
-    }
-
-    static func thead(_ children: [HTML.Node]) -> HTML.Node {
-        return .el("thead", [], children)
-    }
-
-    static func thead(_ attrs: [HTML.Attribute], _ children: [HTML.Node]) -> HTML.Node {
-        return .el("thead", attrs, children)
-    }
-
-    static func th(_ children: [HTML.Node]) -> HTML.Node {
-        return .el("th", [], children)
-    }
-
-    static func th(_ attrs: [HTML.Attribute], _ children: [HTML.Node]) -> HTML.Node {
-        return .el("th", attrs, children)
-    }
-
-    static func tr(_ children: [HTML.Node]) -> HTML.Node {
-        return .el("tr", [], children)
-    }
-
-    static func tr(_ attrs: [HTML.Attribute], _ children: [HTML.Node]) -> HTML.Node {
-        return .el("tr", attrs, children)
-    }
-
-    static func tbody(_ children: [HTML.Node]) -> HTML.Node {
-        return .el("tbody", [], children)
-    }
-
-    static func tbody(_ attrs: [HTML.Attribute], _ children: [HTML.Node]) -> HTML.Node {
-        return .el("tbody", attrs, children)
-    }
-
-    static func td(_ children: [HTML.Node]) -> HTML.Node {
-        return .el("td", [], children)
-    }
-
-    static func td(_ attrs: [HTML.Attribute], _ children: [HTML.Node]) -> HTML.Node {
-        return .el("td", attrs, children)
-    }
-
-    static func ul(_ attrs: [HTML.Attribute], _ children: [HTML.Node]) -> HTML.Node {
-        return .el("ul", attrs, children)
-    }
-
-    static func ul(_ children: [HTML.Node]) -> HTML.Node {
-        return .el("ul", [], children)
-    }
-
-    static func li(_ attrs: [HTML.Attribute], _ children: [HTML.Node]) -> HTML.Node {
-        return .el("li", attrs, children)
-    }
-
-    static func li(_ children: [HTML.Node]) -> HTML.Node {
-        return .el("li", [], children)
-    }
-
-    static func li(_ text: String) -> HTML.Node {
-        return .el("li", [], [.text(text)])
-    }
-
-}
-
 
 extension HTML.Node {
     var tagName: HTML.Tag? {
@@ -269,7 +56,7 @@ extension HTML.Node {
 
 
 extension HTML.Node: ExpressibleByStringLiteral {
-    init(stringLiteral value: String) {
+    public init(stringLiteral value: String) {
         self = .text(value)
     }
 }

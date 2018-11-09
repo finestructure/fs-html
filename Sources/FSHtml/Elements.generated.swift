@@ -377,50 +377,6 @@ public extension HTML.Node {
         return .el("li", attrs, children)
     }
 
-    // link
-
-    static func link(_ text: String) -> HTML.Node {
-        return link([], .text(text))
-    }
-
-    static func link(_ node: HTML.Node) -> HTML.Node {
-        return link([], node)
-    }
-
-    static func link(_ children: [HTML.Node]) -> HTML.Node {
-        return link([], children)
-    }
-
-    static func link(_ attrs: [HTML.Attribute], _ node: HTML.Node) -> HTML.Node {
-        return link(attrs, [node])
-    }
-
-    static func link(_ attrs: [HTML.Attribute], _ children: [HTML.Node]) -> HTML.Node {
-        return .el("link", attrs, children)
-    }
-
-    // meta
-
-    static func meta(_ text: String) -> HTML.Node {
-        return meta([], .text(text))
-    }
-
-    static func meta(_ node: HTML.Node) -> HTML.Node {
-        return meta([], node)
-    }
-
-    static func meta(_ children: [HTML.Node]) -> HTML.Node {
-        return meta([], children)
-    }
-
-    static func meta(_ attrs: [HTML.Attribute], _ node: HTML.Node) -> HTML.Node {
-        return meta(attrs, [node])
-    }
-
-    static func meta(_ attrs: [HTML.Attribute], _ children: [HTML.Node]) -> HTML.Node {
-        return .el("meta", attrs, children)
-    }
-
     // p
 
     static func p(_ text: String) -> HTML.Node {
@@ -694,6 +650,31 @@ public extension HTML.Node {
 
     static var hr: HTML.Node {
         return .el("hr", [], [])
+    }
+
+}
+
+
+public extension HTML.Node {
+
+    // link
+
+    static func link(_ attr: HTML.Attribute) -> HTML.Node {
+        return link([attr])
+    }
+
+    static func link(_ attrs: [HTML.Attribute]) -> HTML.Node {
+        return .el("link", attrs, [])
+    }
+
+    // meta
+
+    static func meta(_ attr: HTML.Attribute) -> HTML.Node {
+        return meta([attr])
+    }
+
+    static func meta(_ attrs: [HTML.Attribute]) -> HTML.Node {
+        return .el("meta", attrs, [])
     }
 
 }
