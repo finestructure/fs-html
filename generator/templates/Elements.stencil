@@ -4,23 +4,23 @@ public extension HTML.Node {
     {% for case in enum.cases %}
     // {{case.name}}
 
-    static func {{case.name}}(_ text: String) -> HTML.Node {
+    public static func {{case.name}}(_ text: String) -> HTML.Node {
         return {{case.name}}([], .text(text))
     }
 
-    static func {{case.name}}(_ node: HTML.Node) -> HTML.Node {
+    public static func {{case.name}}(_ node: HTML.Node) -> HTML.Node {
         return {{case.name}}([], node)
     }
 
-    static func {{case.name}}(_ children: [HTML.Node]) -> HTML.Node {
+    public static func {{case.name}}(_ children: [HTML.Node]) -> HTML.Node {
         return {{case.name}}([], children)
     }
 
-    static func {{case.name}}(_ attrs: [HTML.Attribute], _ node: HTML.Node) -> HTML.Node {
+    public static func {{case.name}}(_ attrs: [HTML.Attribute], _ node: HTML.Node) -> HTML.Node {
         return {{case.name}}(attrs, [node])
     }
 
-    static func {{case.name}}(_ attrs: [HTML.Attribute], _ children: [HTML.Node]) -> HTML.Node {
+    public static func {{case.name}}(_ attrs: [HTML.Attribute], _ children: [HTML.Node]) -> HTML.Node {
         return .el("{{case.name}}", attrs, children)
     }
 
@@ -35,7 +35,7 @@ public extension HTML.Node {
     {% for case in enum.cases %}
     // {{case.name}}
 
-    static var {{case.name}}: HTML.Node {
+    public static var {{case.name}}: HTML.Node {
         return .el("{{case.name}}", [], [])
     }
 
@@ -50,11 +50,11 @@ public extension HTML.Node {
     {% for case in enum.cases %}
     // {{case.name}}
 
-    static func {{case.name}}(_ attr: HTML.Attribute) -> HTML.Node {
+    public static func {{case.name}}(_ attr: HTML.Attribute) -> HTML.Node {
         return {{case.name}}([attr])
     }
 
-    static func {{case.name}}(_ attrs: [HTML.Attribute]) -> HTML.Node {
+    public static func {{case.name}}(_ attrs: [HTML.Attribute]) -> HTML.Node {
         return .el("{{case.name}}", attrs, [])
     }
 

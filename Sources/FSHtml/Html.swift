@@ -9,7 +9,7 @@ import Foundation
 
 
 infix operator =>
-func => <A> (key: HTML.Attribute.Key<A>, value: A) -> HTML.Attribute {
+public func => <A> (key: HTML.Attribute.Key<A>, value: A) -> HTML.Attribute {
     return .init(key.key, "\(value)")
 }
 
@@ -26,7 +26,7 @@ public struct HTML {
             self.value = value
         }
 
-        struct Key<A> {
+        public struct Key<A> {
             let key: String
             init (_ key: String) { self.key = key }
         }
@@ -74,27 +74,27 @@ extension HTML.Tag {
 
 
 extension HTML.Attribute.Key where A == String {
-    static let action = HTML.Attribute.Key<String>("action")
-    static let charset = HTML.Attribute.Key<String>("charset")
-    static let `class` = HTML.Attribute.Key<String>("class")
-    static let content = HTML.Attribute.Key<String>("content")
-    static let crossorigin = HTML.Attribute.Key<String>("crossorigin")
-    static let enctype = HTML.Attribute.Key<String>("enctype")
-    static let `for` = HTML.Attribute.Key<String>("for")
-    static let href = HTML.Attribute.Key<String>("href")
-    static let id = HTML.Attribute.Key<String>("id")
-    static let integrity = HTML.Attribute.Key<String>("integrity")
-    static let lang = HTML.Attribute.Key<String>("lang")
-    static let method = HTML.Attribute.Key<String>("method")
-    static let nameKey = HTML.Attribute.Key<String>("name")
-    static let name = HTML.Attribute.Key<String>("name")
-    static let rel = HTML.Attribute.Key<String>("rel")
-    static let role = HTML.Attribute.Key<String>("role")
-    static let scope = HTML.Attribute.Key<String>("scope")
-    static let src = HTML.Attribute.Key<String>("src")
-    static let style = HTML.Attribute.Key<String>("style")
-    static let type = HTML.Attribute.Key<String>("type")
-    static let value = HTML.Attribute.Key<String>("value")
+    public static let action = HTML.Attribute.Key<String>("action")
+    public static let charset = HTML.Attribute.Key<String>("charset")
+    public static let `class` = HTML.Attribute.Key<String>("class")
+    public static let content = HTML.Attribute.Key<String>("content")
+    public static let crossorigin = HTML.Attribute.Key<String>("crossorigin")
+    public static let enctype = HTML.Attribute.Key<String>("enctype")
+    public static let `for` = HTML.Attribute.Key<String>("for")
+    public static let href = HTML.Attribute.Key<String>("href")
+    public static let id = HTML.Attribute.Key<String>("id")
+    public static let integrity = HTML.Attribute.Key<String>("integrity")
+    public static let lang = HTML.Attribute.Key<String>("lang")
+    public static let method = HTML.Attribute.Key<String>("method")
+    public static let nameKey = HTML.Attribute.Key<String>("name")
+    public static let name = HTML.Attribute.Key<String>("name")
+    public static let rel = HTML.Attribute.Key<String>("rel")
+    public static let role = HTML.Attribute.Key<String>("role")
+    public static let scope = HTML.Attribute.Key<String>("scope")
+    public static let src = HTML.Attribute.Key<String>("src")
+    public static let style = HTML.Attribute.Key<String>("style")
+    public static let type = HTML.Attribute.Key<String>("type")
+    public static let value = HTML.Attribute.Key<String>("value")
 }
 
 
@@ -152,6 +152,6 @@ extension HTML {// Render functinos
 }
 
 
-func render(_ node: HTML.Node) -> String {
+public func render(_ node: HTML.Node) -> String {
     return HTML.render(node)
 }
