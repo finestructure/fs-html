@@ -2,6 +2,10 @@
 
 FSHtml is a Swift DSL to generate HTML for use in server side swift projects - or anywhere you want to write type checked HTML.
 
+This package is inspired by Brandon Williams' [series on type-safe HTML in Swift](https://www.fewbutripe.com/swift/html/dsl/2017/06/22/type-safe-html-in-swift.html).
+
+With FSHtml you can write the following swift code, closely resembling HTML:
+
 ```swift
 func homePage(title: String) -> Node {
     return
@@ -22,8 +26,22 @@ func homePage(title: String) -> Node {
             ])
     ])
 }
-
-homePage("Hello World 🌍")  // -> "<!DOCTYPE HTML> ..."
 ```
 
+and the render it into actual HTML:
+
+
+```
+let node = homePage(title: "Hello World 🌍")
+let html = render(node)    // -> "<!DOCTYPE HTML> ..."
+let size = CGSize(width: 800, height: 600)
+let webView = WKWebView(frame: .init(origin: .zero, size: size))
+webView.loadHTMLString(html, baseURL: nil)
+```
+
+producing the following rendered screenshot:
+
 ![Rendered HML](Tests/FSHtmlTests/__Snapshots__/FSHtmlTests/testHomePageRendered.1.png)
+
+
+This snapshot is generated as part of the package tests.
