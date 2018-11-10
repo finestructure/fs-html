@@ -1,3 +1,5 @@
+.PHONY: magic
+
 clean:
 	rm -rf .build
 
