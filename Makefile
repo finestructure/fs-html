@@ -1,3 +1,5 @@
+.PHONY: magic
+
 clean:
 	rm -rf .build
 
@@ -26,3 +28,6 @@ test-swift:
 	swift test
 
 test-all: test-linux test-mac test-ios
+
+magic:
+	sourcery --templates generator/templates --sources generator/src --output Sources/FSHtml

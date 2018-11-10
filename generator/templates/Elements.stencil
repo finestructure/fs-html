@@ -1,0 +1,63 @@
+public extension HTML.Node {
+{% for enum in types.implementing.AttributesNodes|enum %}
+
+    {% for case in enum.cases %}
+    // {{case.name}}
+
+    public static func {{case.name}}(_ text: String) -> HTML.Node {
+        return {{case.name}}([], .text(text))
+    }
+
+    public static func {{case.name}}(_ node: HTML.Node) -> HTML.Node {
+        return {{case.name}}([], node)
+    }
+
+    public static func {{case.name}}(_ children: [HTML.Node]) -> HTML.Node {
+        return {{case.name}}([], children)
+    }
+
+    public static func {{case.name}}(_ attrs: [HTML.Attribute], _ node: HTML.Node) -> HTML.Node {
+        return {{case.name}}(attrs, [node])
+    }
+
+    public static func {{case.name}}(_ attrs: [HTML.Attribute], _ children: [HTML.Node]) -> HTML.Node {
+        return .el("{{case.name}}", attrs, children)
+    }
+
+    {% endfor %}
+{% endfor %}
+}
+
+
+public extension HTML.Node {
+{% for enum in types.implementing.NoParameters|enum %}
+
+    {% for case in enum.cases %}
+    // {{case.name}}
+
+    public static var {{case.name}}: HTML.Node {
+        return .el("{{case.name}}", [], [])
+    }
+
+    {% endfor %}
+{% endfor %}
+}
+
+
+public extension HTML.Node {
+{% for enum in types.implementing.AttributesOnly|enum %}
+
+    {% for case in enum.cases %}
+    // {{case.name}}
+
+    public static func {{case.name}}(_ attr: HTML.Attribute) -> HTML.Node {
+        return {{case.name}}([attr])
+    }
+
+    public static func {{case.name}}(_ attrs: [HTML.Attribute]) -> HTML.Node {
+        return .el("{{case.name}}", attrs, [])
+    }
+
+    {% endfor %}
+{% endfor %}
+}
