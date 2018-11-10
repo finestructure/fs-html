@@ -1,15 +1,12 @@
-// extension HTML {
 
-//     public enum Node {
-//         indirect case el(Tag, [Attribute], [Node])
-//         case text(String)
-//     }
-
-// }
+public enum Node {
+    indirect case el(Tag, [Attribute], [Node])
+    case text(String)
+}
 
 
-extension HTML.Node {
-    var tagName: HTML.Tag? {
+extension Node {
+    var tagName: Tag? {
         switch self {
         case let .el(tag, _, _):
             return tag
@@ -20,7 +17,7 @@ extension HTML.Node {
 }
 
 
-extension HTML.Node: ExpressibleByStringLiteral {
+extension Node: ExpressibleByStringLiteral {
     public init(stringLiteral value: String) {
         self = .text(value)
     }

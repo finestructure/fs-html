@@ -1,7 +1,7 @@
-public extension HTML.Attribute.Key where A == String {
+public extension Attribute.Key where A == String {
 {% for enum in types.implementing.RegularAttributes|enum %}
     {% for case in enum.cases %}
-    public static let {{case.name}} = HTML.Attribute.Key<A>("{{case.name}}")
+    public static let {{case.name}} = Attribute.Key<A>("{{case.name}}")
     {% endfor %}
 {% endfor %}
 }

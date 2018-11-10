@@ -3,7 +3,7 @@
 FSHtml is a Swift DSL to generate HTML for use in server side swift projects - or anywhere you want to write type checked HTML.
 
 ```swift
-func homePage(title: String) -> HTML.Node {
+func homePage(title: String) -> Node {
     return
         .html([.lang => "en"], [
             .head([
@@ -18,7 +18,7 @@ func homePage(title: String) -> HTML.Node {
             ]),
             .body([
                 .h1([.text(title)]),
-                .p("FSHtml is a Swift DSL to generate HTML for use in server side swift projects - or anywhere you want to write type checked HTML.")
+                .p("FS HTML is a Swift DSL to generate HTML for use in server side swift projects - or anywhere you want to write type checked HTML.")
             ])
     ])
 }
