@@ -13,7 +13,7 @@
       Hello World
     </h1>
     <p>
-      FS HTML is a Swift DSL to generate HTML for use in server side swift projects - or anywhere you want to write type checked HTML.
+      FSHtml is a Swift DSL to generate HTML for use in server side swift projects - or anywhere you want to write type checked HTML.
     </p>
   </body>
 </html>

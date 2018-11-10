@@ -10,21 +10,21 @@ import WebKit
 final class FSHtmlTests: SnapshotTestCase, LinuxTesting {
 
     func testP() {
-        XCTAssertEqual(render(HTML.Node.p("content")),
+        XCTAssertEqual(render(Node.p("content")),
             """
             <p>
               content
             </p>
             """
         )
-        XCTAssertEqual(render(HTML.Node.p(["content"])),
+        XCTAssertEqual(render(Node.p(["content"])),
             """
             <p>
               content
             </p>
             """
         )
-        XCTAssertEqual(render(HTML.Node.p([.class => "value"], ["content"])),
+        XCTAssertEqual(render(Node.p([.class => "value"], ["content"])),
             """
             <p class="value">
               content
@@ -34,7 +34,7 @@ final class FSHtmlTests: SnapshotTestCase, LinuxTesting {
     }
 
     func testAttr() {
-        XCTAssertEqual(HTML.render([.id => "value"]), "id=\"value\"")
+        XCTAssertEqual(render([.id => "value"]), "id=\"value\"")
     }
 
     func testHtml() {
@@ -75,7 +75,7 @@ final class FSHtmlTests: SnapshotTestCase, LinuxTesting {
 }
 
 
-func homePage(title: String) -> HTML.Node {
+func homePage(title: String) -> Node {
     return
         .html([.lang => "en"], [
             .head([
@@ -90,7 +90,7 @@ func homePage(title: String) -> HTML.Node {
             ]),
             .body([
                 .h1([.text(title)]),
-                .p("FS HTML is a Swift DSL to generate HTML for use in server side swift projects - or anywhere you want to write type checked HTML.")
+                .p("FSHtml is a Swift DSL to generate HTML for use in server side swift projects - or anywhere you want to write type checked HTML.")
             ])
     ])
 }

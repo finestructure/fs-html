@@ -72,4 +72,4 @@
                 - .1: 0 elements
                 ▿ .2: 1 element
                   ▿ Node
-                    - text: "FS HTML is a Swift DSL to generate HTML for use in server side swift projects - or anywhere you want to write type checked HTML."
+                    - text: "FSHtml is a Swift DSL to generate HTML for use in server side swift projects - or anywhere you want to write type checked HTML."
