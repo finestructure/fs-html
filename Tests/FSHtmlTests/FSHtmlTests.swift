@@ -61,6 +61,8 @@ final class FSHtmlTests: SnapshotTestCase, LinuxTesting {
 
     func testHomePageRendered() throws {
 #if canImport(WebKit)
+        // disabled < 10.14 because we captured the image on 10.14
+        guard #available(macOS 10.15, *) else { return }
         let node = homePage(title: "Hello World 🌍")
         let html = render(node)
 
@@ -69,6 +71,7 @@ final class FSHtmlTests: SnapshotTestCase, LinuxTesting {
         webView.loadHTMLString(html, baseURL: nil)
 
         assertSnapshot(matching: webView)
+
 #endif
     }
 
