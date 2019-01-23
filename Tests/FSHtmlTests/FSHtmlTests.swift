@@ -59,6 +59,8 @@ final class FSHtmlTests: SnapshotTestCase, LinuxTesting {
         assertSnapshot(matching: html)
     }
 
+    // disabled < 10.14 because we captured the image on 10.14
+    @available(macOS 10.14, *)
     func testHomePageRendered() throws {
 #if canImport(WebKit)
         let node = homePage(title: "Hello World 🌍")

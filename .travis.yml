@@ -18,6 +18,5 @@ matrix:
   include:
     - os: linux
       dist: trusty
-    # disabled because image render test fails due to platform difference (macOS 10.13 vs 10.14)
-    # - os: osx
-    #   osx_image: xcode10.1
+    - os: osx
+      osx_image: xcode10.1
